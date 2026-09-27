@@ -11,6 +11,8 @@ export type BusinessProfile = {
   state: string;
   stateCode: string;
   address: string;
+  /** Six-digit PIN, also appended to address when loaded from the owner row. */
+  pincode: string;
   phone: string;
   email: string;
   bank: { name: string; acNo: string; ifsc: string; branch: string };
@@ -26,6 +28,7 @@ export function emptyProfile(): BusinessProfile {
     state: "",
     stateCode: "",
     address: "",
+    pincode: "",
     phone: "",
     email: "",
     bank: { name: "", acNo: "", ifsc: "", branch: "" },

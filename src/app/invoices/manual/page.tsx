@@ -220,7 +220,7 @@ export default function QuickBillPage() {
     }
   }
 
-  function pickSuggest(c: Suggest & { default_template_id?: string | null }) {
+  function pickSuggest(c: CustomerSuggestion & { email?: string | null; address?: string | null; default_template_id?: string | null }) {
     setCustomerId(c.id);
     setCustomerEmail(c.email || "");
     setCustomerPhone(c.phone || "");

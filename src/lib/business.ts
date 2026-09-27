@@ -36,6 +36,8 @@ export async function getBusinessProfile(ownerId: string): Promise<BusinessProfi
   p.address =
     extra.address ||
     [row.address_line1, row.address_line2, [row.city, row.pincode].filter(Boolean).join(" - ")].filter(Boolean).join(", ");
+  const fromAddress = String(p.address || "").match(/\d{6}/g);
+  p.pincode = String(extra.pincode || row.pincode || (fromAddress?.length ? fromAddress[fromAddress.length - 1] : "") || "");
   p.phone = extra.phone || row.phone || "";
   p.email = extra.email || row.email || "";
   p.bank = { ...p.bank, ...(extra.bank || {}) };
