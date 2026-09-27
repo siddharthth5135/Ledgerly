@@ -1,0 +1,47 @@
+{
+  "name": "ledgerly",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test:unit": "node scripts/unit-test.mjs && node --experimental-strip-types scripts/math-bill.mjs",
+    "test:smoke": "node scripts/smoke-test.mjs",
+    "test:hardcore": "node scripts/hardcore-test.mjs",
+    "test:security": "node scripts/security-test.mjs",
+    "demo:capture": "node scripts/capture-demo.mjs",
+    "test": "npm run test:unit && npm run test:smoke && npm run test:hardcore && npm run test:security",
+    "db:install": "node --env-file=.env.local db/run-install.mjs",
+    "test:e2e": "node scripts/e2e-11.mjs http://localhost:3000",
+    "test:scenarios": "node scripts/e2e-scenarios.mjs http://localhost:3000",
+    "test:chiripal": "node scripts/test-chiripal-visual.mjs http://localhost:3000"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.8",
+    "bcryptjs": "^3.0.3",
+    "fflate": "^0.8.3",
+    "jose": "^6.2.10",
+    "next": "16.2.12",
+    "pdfjs-dist": "^4.10.38",
+    "pg": "^8.23.0",
+    "playwright": "^1.62.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "tesseract.js": "^7.0.0",
+    "unpdf": "^1.8.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.12",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

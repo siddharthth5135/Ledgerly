@@ -1,0 +1,54 @@
+-- Destructive: drops ALL Ledgerly objects. Dev only.
+-- psql "%DATABASE_URL%" -f migrations/999_rollback.sql
+
+DROP FUNCTION IF EXISTS sp_dashboard_overview(UUID, period_filter, DATE, DATE) CASCADE;
+DROP FUNCTION IF EXISTS sp_mark_reminder_sent(UUID, UUID, BOOLEAN, TEXT) CASCADE;
+DROP FUNCTION IF EXISTS sp_create_reminder(UUID, UUID, UUID, TEXT, reminder_channel) CASCADE;
+DROP FUNCTION IF EXISTS fn_default_reminder_message(UUID) CASCADE;
+DROP FUNCTION IF EXISTS sp_list_collection_invoices(UUID, period_filter, DATE, DATE, BOOLEAN) CASCADE;
+DROP FUNCTION IF EXISTS sp_collections_summary(UUID, period_filter, DATE, DATE) CASCADE;
+DROP FUNCTION IF EXISTS sp_list_bill_templates(UUID) CASCADE;
+DROP FUNCTION IF EXISTS sp_get_default_bill_template(UUID) CASCADE;
+DROP FUNCTION IF EXISTS sp_update_bill_template(UUID, UUID, UUID, TEXT, JSONB, JSONB, BOOLEAN, BOOLEAN) CASCADE;
+DROP FUNCTION IF EXISTS sp_create_bill_template(UUID, UUID, TEXT, TEXT, TEXT, JSONB, JSONB, JSONB, BOOLEAN) CASCADE;
+DROP FUNCTION IF EXISTS sp_get_invoice_with_lines(UUID, UUID) CASCADE;
+DROP FUNCTION IF EXISTS sp_list_invoices(UUID, period_filter, DATE, DATE, TEXT, invoice_status, BOOLEAN, NUMERIC, NUMERIC, invoice_source, INT, INT) CASCADE;
+DROP FUNCTION IF EXISTS sp_set_money_received(UUID, UUID, UUID, BOOLEAN, NUMERIC) CASCADE;
+DROP FUNCTION IF EXISTS sp_create_invoice(UUID, UUID, UUID, UUID, TEXT, TEXT, TEXT, TEXT, DATE, DATE, invoice_status, BOOLEAN, NUMERIC, invoice_source, TEXT, JSONB, TEXT, JSONB) CASCADE;
+DROP FUNCTION IF EXISTS sp_touch_customer_from_invoice(UUID, NUMERIC) CASCADE;
+DROP FUNCTION IF EXISTS sp_customer_insights(UUID, period_filter, DATE, DATE) CASCADE;
+DROP FUNCTION IF EXISTS sp_list_customers(UUID, TEXT, TEXT, INT, INT) CASCADE;
+DROP FUNCTION IF EXISTS sp_search_customers_autocomplete(UUID, TEXT, INT) CASCADE;
+DROP FUNCTION IF EXISTS sp_upsert_customer(UUID, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, customer_kind, TEXT[], TEXT, UUID) CASCADE;
+DROP FUNCTION IF EXISTS sp_reset_password_with_otp(TEXT, TEXT, TEXT) CASCADE;
+DROP FUNCTION IF EXISTS sp_request_password_otp(TEXT, TEXT, INT) CASCADE;
+DROP FUNCTION IF EXISTS sp_mark_login_success(UUID) CASCADE;
+DROP FUNCTION IF EXISTS sp_get_user_for_login(TEXT) CASCADE;
+DROP FUNCTION IF EXISTS sp_create_staff_user(UUID, UUID, TEXT, TEXT, TEXT, TEXT, JSONB) CASCADE;
+DROP FUNCTION IF EXISTS sp_register_owner(TEXT, TEXT, TEXT, TEXT, TEXT, user_type, TEXT, TEXT, TEXT) CASCADE;
+DROP FUNCTION IF EXISTS fn_next_invoice_number(UUID) CASCADE;
+DROP FUNCTION IF EXISTS fn_period_bounds(period_filter, DATE, DATE) CASCADE;
+DROP FUNCTION IF EXISTS set_updated_at() CASCADE;
+
+DROP TABLE IF EXISTS audit_logs CASCADE;
+DROP TABLE IF EXISTS catalog_items CASCADE;
+DROP TABLE IF EXISTS reminders CASCADE;
+DROP TABLE IF EXISTS invoice_lines CASCADE;
+DROP TABLE IF EXISTS invoices CASCADE;
+DROP TABLE IF EXISTS bill_templates CASCADE;
+DROP TABLE IF EXISTS customers CASCADE;
+DROP TABLE IF EXISTS password_otps CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS owners CASCADE;
+
+DROP TYPE IF EXISTS period_filter CASCADE;
+DROP TYPE IF EXISTS books_target CASCADE;
+DROP TYPE IF EXISTS reminder_status CASCADE;
+DROP TYPE IF EXISTS reminder_channel CASCADE;
+DROP TYPE IF EXISTS invoice_source CASCADE;
+DROP TYPE IF EXISTS invoice_status CASCADE;
+DROP TYPE IF EXISTS customer_kind CASCADE;
+DROP TYPE IF EXISTS user_role CASCADE;
+DROP TYPE IF EXISTS user_type CASCADE;
+
+-- Extensions left installed (shared): pgcrypto, citext

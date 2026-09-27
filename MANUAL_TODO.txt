@@ -1,0 +1,55 @@
+================================================================================
+LEDGERLY — MANUAL TODO
+Focus: Invoice product for local shops (VeriSupply on hold)
+================================================================================
+
+HOW TO RUN
+--------------------------------------------------------------------------------
+1. cd "C:\Users\SIDDHARTH\OneDrive\Desktop\SOLVED 2.0\ledgerly"
+2. npm install && npm run dev
+3. Open http://localhost:3000
+4. Demo script: http://localhost:3000/demo
+5. Tests: npm run test:unit
+          (server up) npm run test:smoke && npm run test:hardcore
+
+
+A. SHIPPED FOR CLIENT DEMOS
+--------------------------------------------------------------------------------
+- Quick bill (/invoices/manual) + customer/item catalog
+- AI invoice from WhatsApp/Gmail/OCR text
+- Print / Save PDF tax invoice (/invoices/[id]/print)
+- Amount in words + bank block + signatures
+- WhatsApp share (free wa.me) — ₹0
+- Collections + books journal
+- Correct IGST vs CGST+SGST
+- /demo page with pitch script + WhatsApp costs
+
+
+B. YOU MUST STILL DO (sales / infra — not code blockers for demos)
+--------------------------------------------------------------------------------
+1. Deploy to Vercel + domain (shareable link for shops)
+2. Company GST for YOUR SaaS billing (when you charge subscriptions)
+3. Close 5 × ₹999 pilots using assisted invoicing
+4. Later: Postgres + auth so data survives restarts
+5. Later: WhatsApp BSP when volume justifies ₹1.5k–5k/mo
+6. Later: Razorpay live links + webhook mark_paid
+7. Later: Real Tally / Zoho
+8. Lawyer: ToS + "not tax advice" (before scale)
+
+
+C. DEMO PATH (5 MIN)
+--------------------------------------------------------------------------------
+1. /invoices/manual → Sharma Kirana → Create + Print
+2. Print / Save PDF + Share WhatsApp
+3. /invoices/new → sample WhatsApp → generate
+4. /collections → remind INV-1001
+5. /books → show journal
+
+
+D. WHATSAPP COST CHEATSHEET
+--------------------------------------------------------------------------------
+wa.me share (now)     ₹0
+Meta utility msg      ~₹0.15–0.80 / msg
+BSP monthly           ~₹999–4,999 + usage
+
+================================================================================

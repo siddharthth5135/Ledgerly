@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ledgerly Full Client Demo (3–5 min)</title>
+  <style>
+    :root { --bg: #0a1628; --ink: #f2f4f8; --muted: #9aa8bc; --brand: #e07a3d; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+    header { padding: 1rem 1.25rem; border-bottom: 1px solid #1e2d45; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between; }
+    h1 { margin: 0; font-size: 1.05rem; }
+    a { color: var(--brand); }
+    .nav button { background: #122844; color: var(--ink); border: 0; border-radius: 999px; padding: 0.45rem 0.9rem; cursor: pointer; }
+    .nav button:hover { background: var(--brand); color: #0a1628; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+    figure { margin: 0; }
+    img { width: 100%; border-radius: 12px; border: 1px solid #1e2d45; background: #fff; }
+    figcaption { margin-top: 0.75rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+    .label { color: var(--brand); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    video { width: 100%; border-radius: 12px; border: 1px solid #1e2d45; margin-bottom: 1.5rem; background: #000; }
+    .hint { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ledgerly — Full Client Demo (~4–5 min)</h1>
+    <div class="nav">
+      <button type="button" id="prev">← Prev</button>
+      <button type="button" id="next">Next →</button>
+      <span id="pos" style="color:#9aa8bc;font-size:0.85rem"></span>
+    </div>
+  </header>
+  <main>
+    <p class="hint">Play the video with captions on-screen, or read <a href="./CLIENT_DEMO_TRANSCRIPT.txt">CLIENT_DEMO_TRANSCRIPT.txt</a> with timestamps.</p>
+    <p class="label">Full walkthrough video</p>
+    <video controls playsinline>
+      <source src="./Ledgerly-Client-Demo.webm" type="video/webm" />
+    </video>
+    <figure>
+      <p class="label" id="step">Slide 1</p>
+      <img id="img" alt="Demo screenshot" />
+      <figcaption id="cap"></figcaption>
+    </figure>
+  </main>
+  <script>
+    const slides = [
+      ["screenshots/01-home-problem.png", "0:00 — Problem on home (steady)"],
+      ["screenshots/02-home-scroll.png", "0:23 — Cost of Excel / WhatsApp chaos"],
+      ["screenshots/03-solution-overview.png", "0:36 — Not just printing — shop money OS"],
+      ["screenshots/04-quick-bill-start.png", "1:04 — Quick bill feature"],
+      ["screenshots/05-quick-bill-filled.png", "1:24 — Customer + catalog items"],
+      ["screenshots/06-print-invoice.png", "1:35 — Print-ready GST tax invoice"],
+      ["screenshots/07-smart-start.png", "2:00 — Smart invoice from WhatsApp"],
+      ["screenshots/08-smart-editable.png", "2:12 — Editable draft (like Word)"],
+      ["screenshots/09-phone-memory.png", "2:32 — Remember customer by phone"],
+      ["screenshots/10-customers.png", "2:45 — Customers CRM / growth data"],
+      ["screenshots/11-grow-start.png", "3:10 — Grow / offers"],
+      ["screenshots/12-grow-links.png", "3:22 — WhatsApp broadcast links (₹0)"],
+      ["screenshots/13-collections.png", "3:35 — Collections / overdues"],
+      ["screenshots/14-books.png", "3:48 — Books journal for CA"],
+      ["screenshots/15-pricing.png", "4:02 — Close + ₹999 pilot"],
+      ["screenshots/16-end-card.png", "4:28 — Bill · Remember · Collect · Grow"],
+    ];
+    let i = 0;
+    const img = document.getElementById("img");
+    const cap = document.getElementById("cap");
+    const step = document.getElementById("step");
+    const pos = document.getElementById("pos");
+    function render() {
+      img.src = slides[i][0];
+      cap.textContent = slides[i][1];
+      step.textContent = `Slide ${i + 1} / ${slides.length}`;
+      pos.textContent = slides[i][0].split("/").pop();
+    }
+    document.getElementById("prev").onclick = () => { i = (i + slides.length - 1) % slides.length; render(); };
+    document.getElementById("next").onclick = () => { i = (i + 1) % slides.length; render(); };
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") document.getElementById("next").click();
+      if (e.key === "ArrowLeft") document.getElementById("prev").click();
+    });
+    render();
+  </script>
+</body>
+</html>

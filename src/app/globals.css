@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+:root {
+  /* Cool slate surfaces — avoid cream / purple SaaS defaults */
+  --bg: #eef1f6;
+  --bg-elevated: #f7f8fb;
+  --ink: #0b1220;
+  --muted: #5a6a7f;
+  --line: #d5dce8;
+  --line-strong: #b8c2d4;
+  --surface: #ffffff;
+  --brand: #0f4c81;
+  --brand-deep: #0a3358;
+  --brand-soft: #e4eef7;
+  --accent: #c45c26;
+  --accent-soft: #f8e6db;
+  --ok: #0d7a4f;
+  --ok-soft: #e3f5ec;
+  --danger: #b42318;
+  --danger-soft: #fdeceb;
+  --warn: #a15c07;
+  --warn-soft: #fef3e2;
+  --deep: #071018;
+  --chart-1: #0f4c81;
+  --chart-2: #c45c26;
+  --chart-3: #0d7a4f;
+  --chart-4: #6b5b95;
+  --radius: 1rem;
+  --shadow-sm: 0 1px 2px rgba(11, 18, 32, 0.04);
+  --shadow-md: 0 8px 24px rgba(11, 18, 32, 0.06);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01" on, "cv11" on;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.011em;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.03em;
+  font-optical-sizing: auto;
+}
+
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+.hero-mesh {
+  background:
+    radial-gradient(ellipse 80% 60% at 8% 15%, rgba(196, 92, 38, 0.22), transparent 55%),
+    radial-gradient(ellipse 55% 50% at 92% 8%, rgba(15, 76, 129, 0.5), transparent 52%),
+    radial-gradient(ellipse 45% 40% at 70% 95%, rgba(13, 122, 79, 0.18), transparent 50%),
+    linear-gradient(165deg, #050b14 0%, #0a1624 42%, #12304a 100%);
+}
+
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes draw-bar {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.animate-rise { animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-rise-1 { animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both; }
+.animate-rise-2 { animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both; }
+.animate-rise-3 { animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; }
+.animate-fade { animation: fade-in 0.5s ease both; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* --- Editorial marketing surface -------------------------------------- */
+
+/* Printed-paper tooth: keeps large dark areas from looking like flat CSS.
+   Both textures are overlays so they never clobber a background gradient. */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+}
+
+/* Engineering grid — echoes the ruled columns of a real tax invoice */
+.blueprint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 68px 68px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, #000 20%, transparent 78%);
+}
+
+.rule-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes caret {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.caret {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes scan-sweep {
+  from { transform: translateY(-8%); }
+  to { transform: translateY(108%); }
+}
+.scan-sweep { animation: scan-sweep 2.1s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+@keyframes row-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.row-in { animation: row-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes progress-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-rise-1,
+  .animate-rise-2,
+  .animate-rise-3,
+  .animate-fade,
+  .row-in,
+  .scan-sweep,
+  .ticker-track,
+  .caret {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.bill-editable:empty::before {
+  content: attr(data-placeholder);
+  color: rgba(0, 0, 0, 0.35);
+  font-weight: 400;
+}
+
+/* Soft focus rings for keyboard-first UX */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  html,
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .bill-document {
+    width: 210mm !important;
+    min-height: 296mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    break-inside: auto;
+  }
+  .bill-document input,
+  .bill-document textarea {
+    background: transparent !important;
+  }
+  img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .print-toolbar,
+  .no-print,
+  header,
+  footer,
+  nav {
+    display: none !important;
+  }
+  .tax-invoice {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+}

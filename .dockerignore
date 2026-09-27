@@ -1,0 +1,8 @@
+node_modules
+.next
+.env
+.env.*
+public/uploads
+coverage
+*.md
+!README.md

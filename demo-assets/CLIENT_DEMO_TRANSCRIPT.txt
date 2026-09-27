@@ -1,0 +1,185 @@
+================================================================================
+LEDGERLY — FULL CLIENT DEMO TRANSCRIPT (3–5 MIN)
+Synced to: demo-assets\Ledgerly-Client-Demo.webm
+On-screen orange captions match what you say below.
+================================================================================
+
+HOW TO PRESENT
+--------------------------------------------------------------------------------
+1. Play the video on your laptop/phone.
+2. Speak the lines at each timestamp (or let captions carry a silent screening).
+3. Pause on Print invoice if they want to see paper quality.
+
+
+================================================================================
+ACT 1 — THE PROBLEM  (home page, stay here first)
+================================================================================
+
+[0:00 – 0:12]
+“Before I click anything — this is the problem every wholesale or trading shop
+has.
+
+Orders come on WhatsApp. You type the bill in Excel. You guess GST. Then you
+forget to chase payment. And every customer’s phone lives only in your head.”
+
+[0:12 – 0:23]
+“What does that cost? Ten-plus hours a week. Wrong IGST or CGST — notices later.
+Money stuck in overdues. And because you don’t remember who buys every day,
+you never send offers — so sales stay flat.”
+
+[0:23 – 0:36]
+“Tally is for your CA. Excel is manual. Normal invoice apps only print a bill.
+None of them remember your buyers or help you sell more tomorrow.
+That is the gap Ledgerly fills.”
+
+
+================================================================================
+ACT 2 — SOLUTION OVERVIEW  (still product story, not ‘just printing’)
+================================================================================
+
+[0:36 – 0:48]
+“Ledgerly is not ‘another invoice printer’.
+It is a shop money system: Bill correctly → Remember every customer by phone →
+Collect dues → Push offers → Close books for your CA.”
+
+[0:48 – 1:04]
+“Four jobs, one product.
+One: fast GST billing.
+Two: customer memory.
+Three: collections and grow offers.
+Four: books journal.
+Once your history lives here, switching away becomes hard — that is the value.”
+
+
+================================================================================
+ACT 3 — FEATURE: QUICK BILL + PRINT  (real demo)
+================================================================================
+
+[1:04 – 1:15]
+“Feature one — Quick bill. Buyer is at the counter. You don’t paste WhatsApp.
+You pick the customer and items — bill in seconds.”
+
+[1:15 – 1:24]
+“I select Sharma Kirana. Phone and GSTIN fill. Ledgerly already knows this party.”
+
+[1:24 – 1:35]
+“I add items from the catalog — cartons, tape — with HSN and rate saved.
+If today’s deal is different, I change qty or rate.”
+
+[1:35 – 1:50]
+“Create and Print. Watch — GST is calculated. Same state: CGST plus SGST.
+Other state would be IGST. Amount in words, bank details, signature space.
+This is the tax invoice you can print or Save as PDF.”
+
+[1:50 – 2:00]
+“Share on WhatsApp costs zero today — opens your WhatsApp with bill and pay link.
+So even billing alone is faster and safer than Excel.”
+
+
+================================================================================
+ACT 4 — FEATURE: SMART INVOICE + EDIT + PHONE MEMORY
+================================================================================
+
+[2:00 – 2:12]
+“Feature two — Smart invoice. Real life: customer WhatsApps
+‘Urban Wear wants 15 cartons @ 450’ with GSTIN and phone. I paste it.”
+
+[2:12 – 2:22]
+“Generate. Ledgerly drafts the bill — party, lines, tax.
+Then — important — Edit freely. Like Word. AI assists; you approve.”
+
+[2:22 – 2:32]
+“Example: verbally they said 18 cartons, not 15. I change qty. Totals update.
+Nothing wrong sends to the customer.”
+
+[2:32 – 2:45]
+“Feature three — Remember by phone. I type the mobile and lookup.
+If they billed before, name and history return. Your customer list grows with
+every invoice — automatically.”
+
+
+================================================================================
+ACT 5 — FEATURE: CUSTOMERS (growth data, not a contact dump)
+================================================================================
+
+[2:45 – 2:58]
+“Customers page. This is not a static phone book.
+Bill count, total purchases, tags like daily or regular, and who went quiet
+for more than fourteen days.”
+
+[2:58 – 3:10]
+“Now you can plan: call quiet buyers, reward regulars, focus on top purchasers.
+This is how we help you acquire and keep customers — not only print invoices.”
+
+
+================================================================================
+ACT 6 — FEATURE: GROW / OFFERS
+================================================================================
+
+[3:10 – 3:22]
+“Feature four — Grow. Festival offer or daily-buyer perk.
+Write the message once. We prepare WhatsApp links for eligible customers who
+already have numbers in Ledgerly.”
+
+[3:22 – 3:35]
+“I prepare the broadcast. Each row is one customer — tap WhatsApp, message is
+ready. Cost today: zero. Auto Meta API later when you have volume and profit.”
+
+
+================================================================================
+ACT 7 — FEATURE: COLLECTIONS
+================================================================================
+
+[3:35 – 3:48]
+“Feature five — Collections. Overdues appear here.
+One reminder with pay link. Getting stuck cash in is where shops feel Ledgerly
+is true value for money — not just a printer.”
+
+
+================================================================================
+ACT 8 — FEATURE: BOOKS
+================================================================================
+
+[3:48 – 4:02]
+“Feature six — Books. Every bill becomes a balanced journal:
+Sales, CGST/SGST or IGST, Receivable. Your CA stops retyping WhatsApp photos.
+Month-end becomes lighter.”
+
+
+================================================================================
+ACT 9 — CLOSE / ASK
+================================================================================
+
+[4:02 – 4:14]
+“Why shops say yes: cheaper than a data-entry person, faster than Excel,
+remembers customers, helps collect, helps sell again with offers.”
+
+[4:14 – 4:28]
+“Pilot — nine hundred ninety-nine rupees for seven days.
+Forward your WhatsApp orders. Get GST-correct printable bills.
+We look at overdues with you. If time and cash don’t improve — you stop.”
+
+[4:28 – 4:40]
+“Next step: start this week with your last ten orders.
+Ledgerly — Bill. Remember. Collect. Grow. Close the books.
+Shall we begin?”
+
+
+================================================================================
+OBJECTIONS (if they pause the video)
+================================================================================
+“Only invoicing?” → Show Customers + Grow + Collections timestamps above.
+“AI wrong?” → 2:22 editable draft.
+“WhatsApp costly?” → 3:22 — ₹0 share now.
+“I have Tally?” → 3:48 books feed CA; counter stays fast.
+
+
+================================================================================
+RE-RECORD
+================================================================================
+cd "C:\Users\SIDDHARTH\OneDrive\Desktop\SOLVED 2.0\ledgerly"
+npm run start
+npm run demo:capture
+
+Open: demo-assets\index.html  OR  Ledgerly-Client-Demo.webm
+================================================================================
